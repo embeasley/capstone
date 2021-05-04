@@ -1,0 +1,1047 @@
+---
+title: "Finding Average Percent Increase Before"
+output: html_document
+---
+
+```{r}
+# weekly dates up to 5/2/2020 (going from Saturday 1/04 to Saturday 5/02) 
+weeks <- seq(as.Date("2020-01-04"), as.Date("2020-05-02"), by = "week")
+length(weeks)
+weeks
+```
+
+```{r, Alabama}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+alabama.avg = mean(all.weeks)
+alabama.avg
+```
+
+```{r, Alaska}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Alaska" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Alaska" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+alaska.avg = mean(all.weeks)
+alaska.avg
+```
+
+
+```{r, Arizona}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Arizona" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Arizona" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+arizona.avg = mean(all.weeks)
+arizona.avg
+```
+
+```{r, Arkansas}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Arkansas" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Arkansas" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+arkansas.avg = mean(all.weeks)
+```
+
+```{r, California}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "California" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "California" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+california.avg = mean(all.weeks)
+```
+
+```{r, Colorado}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Colorado" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Colorado" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+colorado.avg = mean(all.weeks)
+```
+
+```{r, Connecticut}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Connecticut" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Connecticut" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+connecticut.avg = mean(all.weeks)
+```
+
+```{r, Delaware}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Delaware" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Delaware" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+delaware.avg = mean(all.weeks)
+```
+
+```{r, Florida}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Florida" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Florida" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+florida.avg = mean(all.weeks)
+```
+
+```{r, Georgia}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Georgia" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Georgia" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+georgia.avg = mean(all.weeks)
+```
+
+```{r, Hawaii}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Hawaii" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Hawaii" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+hawaii.avg = mean(all.weeks)
+```
+
+```{r, Idaho}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Idaho" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Idaho" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+idaho.avg = mean(all.weeks)
+```
+
+```{r, Illinois}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Illinois" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Illinois" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+illinois.avg = mean(all.weeks)
+```
+
+```{r, Indiana}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Indiana" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Indiana" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+indiana.avg = mean(all.weeks)
+```
+
+```{r, Iowa}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Iowa" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Iowa" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+iowa.avg = mean(all.weeks)
+```
+
+```{r, Kansas}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Kansas" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Kansas" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+kansas.avg = mean(all.weeks)
+```
+
+```{r, Kentucky}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Kentucky" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Kentucky" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+kentucky.avg = mean(all.weeks)
+```
+
+```{r, Louisiana}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Louisiana" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Louisiana" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+louisiana.avg = mean(all.weeks)
+```
+
+```{r, Maryland}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Maryland" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Maryland" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+maryland.avg = mean(all.weeks)
+```
+
+```{r, Massachusetts}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Massachusetts" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Massachusetts" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+massachusetts.avg = mean(all.weeks)
+```
+
+
+```{r, Michigan}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Michigan" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Michigan" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+michigan.avg = mean(all.weeks)
+```
+
+```{r, Minnesota}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Minnesota" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Minnesota" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+minnesota.avg = mean(all.weeks)
+```
+
+```{r, Mississippi}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Mississippi" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Mississippi" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+mississippi.avg = mean(all.weeks)
+```
+
+```{r, Missouri}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Missouri" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Missouri" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+missouri.avg = mean(all.weeks)
+```
+
+```{r, Montana}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Montana" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Montana" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+montana.avg = mean(all.weeks)
+```
+
+```{r, Nevada}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Nevada" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Nevada" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+nevada.avg = mean(all.weeks)
+```
+
+```{r, New Hampshire}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "New Hampshire" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "New Hampshire" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+newhampshire.avg = mean(all.weeks)
+```
+
+```{r, New Jersey}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "New Jersey" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "New Jersey" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+newjersey.avg = mean(all.weeks)
+```
+
+```{r, New Mexico}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "New Mexico" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "New Mexico" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+newmexico.avg = mean(all.weeks)
+```
+
+```{r, New York}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "New York" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "New York" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+newyork.avg = mean(all.weeks)
+```
+
+```{r, North Carolina}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "North Carolina" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "North Carolina" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+northcarolina.avg = mean(all.weeks)
+```
+
+```{r, North Dakota}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "North Dakota" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "North Dakota" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+northdakota.avg = mean(all.weeks)
+```
+
+```{r, Ohio}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Ohio" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Ohio" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+ohio.avg = mean(all.weeks)
+```
+
+```{r, Oklahoma}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Oklahoma" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Oklahoma" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+oklahoma.avg = mean(all.weeks)
+```
+
+```{r, Oregon}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Oregon" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Oregon" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+oregon.avg = mean(all.weeks)
+```
+
+```{r, Pennsylvania}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Pennsylvania" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Pennsylvania" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+pennsylvania.avg = mean(all.weeks)
+```
+
+```{r, Rhode Island}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Rhode Island" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Rhode Island" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+rhodeisland.avg = mean(all.weeks)
+```
+
+```{r, South Carolina}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "South Carolina" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "South Carolina" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+southcarolina.avg = mean(all.weeks)
+```
+
+```{r, South Dakota}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "South Dakota" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "South Dakota" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+southdakota.avg = mean(all.weeks)
+```
+
+```{r, Tennessee}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Tennessee" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Tennessee" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+tennessee.avg = mean(all.weeks)
+```
+
+```{r, Texas}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Texas" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Texas" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+texas.avg = mean(all.weeks)
+```
+
+```{r, Utah}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Utah" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Utah" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+utah.avg = mean(all.weeks)
+```
+
+```{r, Vermont}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Vermont" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Vermont" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+vermont.avg = mean(all.weeks)
+```
+
+
+
+
+```{r, Virginia}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Virginia" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Virginia" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+virginia.avg = mean(all.weeks)
+```
+
+
+```{r, Washington}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Washington" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Washington" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+washington.avg = mean(all.weeks)
+```
+
+```{r, West Virginia}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "West Virginia" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "West Virginia" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+westvirginia.avg = mean(all.weeks)
+```
+
+```{r, Wisconsin}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Wisconsin" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Wisconsin" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+wisconsin.avg = mean(all.weeks)
+```
+
+```{r, Wyoming}
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Wyoming" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Wyoming" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+all.weeks[is.na(all.weeks)] = 0
+wyoming.avg = mean(all.weeks)
+wyoming.avg
+```
+
+
+```{r, LIST ALL OF THE STATES AVERAGE}
+"Overall weekly increase for each state before May 2nd"
+state = c("Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maryland","Masschusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nevada","New Hampshire","New Jersey","New Mexico", "New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming")
+before <- c(alabama.avg, alaska.avg, arizona.avg, arkansas.avg, california.avg, colorado.avg, connecticut.avg, delaware.avg, florida.avg, georgia.avg, hawaii.avg, idaho.avg,illinois.avg, indiana.avg, iowa.avg,kansas.avg, kentucky.avg,louisiana.avg, maryland.avg, massachusetts.avg, michigan.avg, minnesota.avg, mississippi.avg, missouri.avg, montana.avg, nevada.avg, newhampshire.avg, newjersey.avg, newmexico.avg, newyork.avg, northcarolina.avg, northdakota.avg, ohio.avg, oklahoma.avg, oregon.avg, pennsylvania.avg, rhodeisland.avg, southcarolina.avg, southdakota.avg, tennessee.avg, texas.avg, utah.avg, vermont.avg, virginia.avg, washington.avg, westvirginia.avg, wisconsin.avg, wyoming.avg)
+
+
+
+
+```
+
+```{r, emmybeast (emily)}
+#unique(rq1.version4$state)
+
+
+```
+

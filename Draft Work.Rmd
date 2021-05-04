@@ -1,0 +1,477 @@
+---
+title: "Draft Work"
+author: "Emily, Jerri, Nicholas"
+date: "2/15/2021"
+output: pdf_document
+---
+
+```{r}
+# Use this page to test code. So the main RMD stays organized
+```
+
+```{r}
+
+#data1 <- read.csv("us-states.csv")
+#temp <- as.Date(data1$date, format = "%Y-%m-%d")
+#head(temp)
+#month <- substr(temp, 6, 7)
+#month
+#as.numeric(month)
+
+#rq1.version1 = merge(subset.rq1,state.levels.v2, by = "state") # CASE2 NEEDS TO BE CHECKED
+#head(rq1.version1)
+
+#temp1 <- as.Date(rq1.version1$date, format = "%Y-%m-%d")
+#month1 <- substr(temp1, 6, 7)
+#month1
+#month <- as.numeric(month1)
+#head(numericMonth1, 50)
+#as.numeric(rq1.version1$date)
+
+#new column added to rq1.version1 dataset
+rq1.version2 <- cbind(rq1.version1, month)
+rq1.version2
+head(rq1.version2,500)
+tail(rq1.version2, 500)
+
+```
+```{r}
+
+#month <- substr(temp1, 6, 7)
+#month
+#as.numeric(month)
+#head(month)
+
+#rq1.version2 <- cbind(rq1.version1, new_col = )
+
+
+
+#data1 <- read.csv("us-states.csv")
+#temp <- as.Date(data1$date, format = "%Y-%m-%d")
+#head(temp)
+#month <- substr(temp, 6, 7)
+#month
+#as.numeric(month)
+
+
+
+```
+
+```{r}
+
+# this code is specific right now but will be tailored toward all states later
+# this code is for printing alabama, 3-13-20 cumulative cases 
+mar.13.20 = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == "2020-03-13")]
+mar.13.20
+
+# this code is for printing alabama, 3-20-20 cumulative cases
+mar.20.20 = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == "2020-03-20")]
+mar.20.20
+
+# here we are using the percent increase formula (future-past / past) * 100 
+increase = ((mar.20.20 - mar.13.20) / mar.13.20 ) * 100
+increase 
+
+#can you verify that this is a proper way of doing weekly % increase
+
+# how do we write code that will cycle through each week and give us the cumulative cases for each state? we feel like the answer to that is the above code but we need to make it work for all of the states. 
+
+# the output below is: 6 cases total for march 13 2020, 106 cases total for march 20 2020, which is a 1666% increase 
+
+```
+
+```{r, TESTING }
+
+# convert rq1.version3$date to julian?
+
+
+#states <- c("Alabama", "Alaska")
+states <- rq1.version3$state
+states.group <- sort(unique(states))
+
+#weeks <- c("2020-01-01", "2020-05-02")
+#something to use for weeks(?)
+
+weeks <- as.Date(rq1.version3$date, format = "%Y-%m-%d")
+weeks1 <- substr(weeks, 9, 12)
+weeks1
+as.numeric(weeks1)
+
+for (i in 1:48) {
+   past = rq1.version3$cases[which(rq1.version3$states.group == states.group[i] & rq1.version3$date == weeks[i])]
+   future = rq1.version3$cases[which(rq1.version3$state == states.group[i] & rq1.version3$date == weeks[i+1])]
+
+   print(past)
+   print(future)
+   #weekly%increase = ((future - past) / past ) * 100
+   #weekly%increase
+}
+
+
+
+# whats wrong:
+#alabama 3/20, alabama 3/27, % formula of those, alaska skips to 3/27
+
+# write your desired output:
+#alabama on 3/20, alabama on 3/27, % formula of those, then the same for alaska 
+
+
+
+```
+
+```{r, FINAL LOOP FOR OVERALL WEEKLY AVG. INCREASES STATES}
+# weekly dates up to 5/2/2020 (going from Saturday 1/04 to Saturday 5/02) 
+weeks <- seq(as.Date("2020-01-04"), as.Date("2020-05-02"), by = "week")
+length(weeks)
+
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+weeks
+all.weeks[is.na(all.weeks)] = 0
+all.weeks
+mean(all.weeks)
+
+# remember the goal is to have one number that summarizes the overall average weekly increase. the data structure will look like this:
+# state, average weekly increase
+# alabama 400.57
+# alaska 1600.65
+
+```
+
+```{r, Emily}
+#code that steven suggested to use to take out specific (states) from specific row/column index...(goal is printing states individually or something idk nicholas can explain this better):
+   #we would put this code outside of for loop but for now:
+group <- rq1.version3$state
+group.states <- sort(unique(group))
+
+
+for(i in 1:length(group.states)) {
+    #== group.states[i]
+   weekly.increase[j] == group.states[i]
+   #group == group.states[i]  
+}
+```
+
+```{r, NESTED FOR LOOP PRACTICE}
+
+group <- rq1.version3$state
+group.states <- sort(unique(group))
+test = c()
+for (i in 1:length(group.states)) {
+   test[i] = 2+2
+}
+test
+length(test)
+
+#for states i in 1:48
+#  which rows with state i
+#    for weeks j 2:18
+#          which rows = date
+#
+
+
+#taking jerri's code and going to see if i can get this nest to spread its wings
+
+
+
+
+
+
+
+```
+
+```{r, Nick attempt nested for loop}
+# weekly dates up to 5/2/2020 (going from Saturday 1/04 to Saturday 5/02) 
+weeks <- seq(as.Date("2020-01-04"), as.Date("2020-05-02"), by = "week")
+length(weeks)
+
+past = c()
+future = c()
+weekly.increase = c()
+all.weeks <- c()
+
+for (j in 2:18) {
+   #the past variable will choose the correct case value that correlate with the state and date specified
+   past[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j-1])]
+   #the future variable will choose the correct case value that correlate with the state and one week ahead of specified date
+   future[j] = rq1.version3$cases[which(rq1.version3$state == "Alabama" & rq1.version3$date == weeks[j])]
+   #the weekly.increase variable is calculating the weekly percentage increase from the past to future cases
+   weekly.increase[j] = ((future[j] - past[j]) / past[j] ) * 100
+   #the all.weeks variable is being populated by each weekly percent increase
+   all.weeks[j] <- weekly.increase[j]
+}
+
+
+weeks
+all.weeks[is.na(all.weeks)] = 0
+all.weeks
+mean(all.weeks)
+
+
+# remember the goal is to have one number that summarizes the overall average weekly increase. the data structure will look like this:
+# state, average weekly increase
+# alabama 400.57
+# alaska 1600.65
+
+```
+
+
+
+```{r, Emily Notes on Linear Modeling & Hypothesis Testing for RSCHQ1}
+#hypothesis testing the model for research question 1: order = b0 + b1*cum.cases + b2*party
+#we will need the max number of cases per state if we wanted to have one row with cases per state so we can add that column into 'rq2' to answer RQ1!!!
+
+fit1 <- lm(order ~ 1 + before + party, data = rq1.version4) # Stat 410: lecture 04 pt. 2, slide 7 
+summary(fit1)
+
+# interpretation from slide 21 lecture 06_1
+# when we compare x_1, of the same x_2, we estimate that x_1 are higher by b_1 on average 
+#interpretation from website nicholas found:
+# "difference in order level between political parties" 
+
+# when we compare cumulative COVID-19 cases of the states with republican party affiliation, we estimate that order is higher or more strict on average by 0.00085
+# 1% increase in weekly avg. is associated with higher level by .0008 on avg. 
+
+
+# beta_2 :when comparing republican and democrat states, republican states on average were -0.9965 (1 level lower) lower on average for their stay at home order level (less strict?) 
+#^-0.9964850
+
+# assume if we compare same political party states, if one state has one percent higher increase than the other, then we expect level to go higher by 0.0008
+#higher as in 1 -> 2 -> 3 -> 4 ordinal or meaning more/less strict?
+
+
+#in order to expect one higher level, the difference needed was 100% increase 
+#alter '100' as appropriate to receive whole num of, e.g, 1
+
+#according to the p-value for b_1 estimate it is not sufficient to claim positive association between order and before variables 
+
+plot(rq1.version4$before, rq1.version4$order)
+
+
+```
+
+
+```{r, descriptive stats for RschQ1}
+library(arm)
+plot(rq1.version4$before, rq1.version4$order)
+
+boxplot(order ~ before, data = rq1.version4) #we may consider utilizing this box plot for our descript. stats for RQ1
+#barplot for before and order; going to factorize
+
+boxplot(before ~ party, data = rq1.version4) # boxplot nicholas and i made which makes more sense to explain and show to our audience. Before is our Y-axis and Party is our X-axis
+
+boxplot(after ~ party, data = rq1.version4) #curious to see what the boxplot would look like for 'after'...interesante.
+
+#can report desc stat: among republican states, what percent was order four?
+#also compare to democrat states. KIM: partyR means Republican is compared to Democrats
+plot(fit3, 1)
+plot(fit3, 2)
+plot(fit3, 4)#plot of linear model 1- will need major alterations
+summary(fit1)
+samp1 <- sim(fit1, n.sim = 10000)
+beta.samp1 <- coef(samp1)
+head(beta.samp1) #we now know there are 3 columns (betas) to work with 
+summary(beta.samp1) #summary for intercept B_0, B_1 and B_2 of our model or we can use function below:
+summary.post1 <- function(x) { 
+   
+   plot(density(x), xlab = "", ylab = "", main = "Approx. Distribution")
+   out = list(mean(x), quantile(x, prob = c(0.025, 0.5, 0.975)))
+   names(out) = c("mean", "quantile")
+   out
+   
+   }
+
+summary.post1(beta.samp1[,1]) #summary stats for beta_0
+summary.post1(beta.samp1[,2]) #summary stats for beta_1:before
+summary.post1(beta.samp1[,3]) #summary stats for beta_2:party
+#not even stat. sign to claim that there is an association between the before variable and the orders. Party is, though.
+```
+
+
+```{r, Emily Notes: Hypoth Test/Linear Modeling for RSCHQ2}
+
+#install.packages("arm") - necessary for descript. stats below for RSCHQ2
+#library(arm)
+
+fit2 <- lm(after ~ 1 + order + before, data = rq1.version4) 
+#INTERPRETATION FOR LM RQ2: we have stat. evidence to claim that there is some negative association between order and the after variable...
+#for every 1 level change/increase in order level, the average percent in cases goes down by ~1.83% 
+#
+
+summary(fit2)
+plot(fit2)
+```
+
+```{r, EB - Descriptives for RSCHQ2}
+plot(fit2) #plot of linear model 2- will need alterations
+#can treat order as ordinal categorical for RQ1
+#may use similar descript. stats as for RQ1; utilize STAT 310 methods for visualization!
+summary(fit2)
+samp <- sim(fit2, n.sim = 10000)
+beta.samp <- coef(samp)
+head(beta.samp) #we now know there are 3 columns (betas) to work with 
+summary(beta.samp) #summary for intercept B_0, B_1 and B_2 of our model or we can use function below:
+summary.post <- function(x) { 
+   
+   plot(density(x), xlab = "", ylab = "", main = "Approx. Distribution")
+   out = list(mean(x), quantile(x, prob = c(0.025, 0.5, 0.975)))
+   names(out) = c("mean", "quantile")
+   out
+   
+   }
+
+summary.post(beta.samp[,1]) #summary stats for beta_0
+summary.post(beta.samp[,2]) #summary stats for beta_1:order
+summary.post(beta.samp[,3]) #summary stats for beta_2:before
+
+```
+
+
+```{r, Emily BRAINSTORMING on LM for RQ3 j.i.c}
+
+# creating the factor variable so we can use Mask as our response variable and possibly party as well(?)
+
+#RESOURCES THAT HELP WITH FACTORING:
+#https://stats.idre.ucla.edu/r/modules/coding-for-categorical-variables-in-regression-models/
+#https://stats.idre.ucla.edu/r/modules/factor-variables/ 
+#https://stackoverflow.com/questions/47922184/convert-categorical-variables-to-numeric-in-r/47923178
+
+rq1.version4$mask.f <- factor(rq1.version4$mask)
+
+#rq1.version4$party.f <- factor(rq1.version4$party)
+
+is.factor(rq1.version4$party.f)
+
+is.factor(rq1.version4$mask.f)
+
+is.numeric(rq1.version4$mask.f)
+
+rq1.version4 %>% mutate_if(is.factor, as.numeric)
+rq1.version4$mask.f[1:20]
+
+summary(lm(mask.f ~ party.f, data = rq1.version4))
+
+```
+
+```{r}
+#nick trying to factor the order variable for RQ2 
+
+order.f = as.factor(rq1.version4$order)
+
+fit3 = lm(after ~ 1 + order.f + before )
+summary(fit3)
+plot(fit3, 1)
+plot(fit3, 2)
+plot(fit3, 4)
+
+#use this model 
+order.sq = order^2
+fit9 = lm(after ~ 1 + order + order.sq + before)
+summary(fit9)
+plot(fit9, 1)
+plot(fit9, 2)
+plot(fit9, 4)
+
+samp9 <- sim(fit9, n.sim = 10000)
+beta.samp9 <- coef(samp9)
+head(beta.samp9)
+
+fit09 = lm(after ~ 1 + order + order.sq)
+summary(fit09)
+plot(fit09, 1)
+plot(fit09, 2)
+plot(fit09, 4)
+
+#simple linear regression steven mentioned in meeting 04/22 for order and after for our paper
+fit009 <- lm(after ~ 1 + order, data = rq1.version4)
+summary(fit009)
+plot(fit009, 1)
+
+#"simple" code from steven that would look better for our readers on our paper below: (keep in mind we have to alter it a bit)
+order_ <- seq(1, 4, 1)
+b0.hat <- 0.31
+b1.hat <- 12.32
+b2.hat <- -2.42
+mu.hat <- b0.hat + b1.hat*order_ + b2.hat*order_^2
+plot(mu.hat ~ order_, type = "b", xlab = "Level of Stay-At-Home Orders", ylab = "Estimated 'After' Average")
+
+fit10 = lm(after ~ 1 + before^2)
+summary(fit10)
+plot(fit10, 1)
+plot(fit10, 2)
+plot(fit10, 4)
+
+#fit11/12/13 have ALL of the same results and are NO DIFFERENT than original RQ2 model 
+fit11 = lm(after ~ 1 + order.f^2 + before)
+summary(fit11)
+plot(fit11, 1)
+plot(fit11, 2)
+plot(fit11, 4)
+
+fit12 = lm(after ~ 1 + order.f + before^2)
+summary(fit12)
+plot(fit12, 1)
+plot(fit12, 2)
+plot(fit12, 4)
+
+fit13 = lm(after ~ 1 + order.f^2 + before^2)
+summary(fit13)
+plot(fit13, 1)
+plot(fit13, 2)
+plot(fit13, 4)
+
+```
+
+```{r}
+# squaring one explanatory variable at a time for RQ1 
+# order = before + party
+fit4 = lm(order ~ 1 + before^2)
+summary(fit4)
+plot(fit4,1)
+plot(fit4,2)
+plot(fit4,3)
+
+fit5 = lm(order ~ 1 + party^2)
+summary(fit5)
+plot(fit5,1)
+plot(fit5,2)
+plot(fit5,3)
+
+
+fit6 = lm(order ~ 1 + before^2 + party)
+summary(fit6)
+plot(fit6,1)
+plot(fit6,2)
+plot(fit6,4)
+
+fit7 = lm(order ~ 1 + before^2 + party^2)
+summary(fit7)
+plot(fit7,1)
+plot(fit7,2)
+plot(fit7,4)
+
+fit8 = lm(order ~ 1 + before + party^2) #it looks like the only graph that has "clear" results, is the model with Order and Party^2. So maybe we can talk about all the models we attempted in our discussions so that we dont completely abandon the research Q1 and keep the party^2 model for results? 
+summary(fit8)
+plot(fit8,1)
+plot(fit8,2)
+plot(fit8,4)
+```
+
+
+
+
+
